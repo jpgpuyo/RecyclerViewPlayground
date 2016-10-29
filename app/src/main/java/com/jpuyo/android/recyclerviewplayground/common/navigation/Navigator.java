@@ -3,10 +3,10 @@ package com.jpuyo.android.recyclerviewplayground.common.navigation;
 import android.content.Context;
 import android.content.Intent;
 
-import com.jpuyo.android.recyclerviewplayground.recyclerview.epoxy.EpoxyActivity;
-import com.jpuyo.android.recyclerviewplayground.recyclerview.groupie.GroupieActivity;
-import com.jpuyo.android.recyclerviewplayground.recyclerview.nolibraries.NoLibrariesActivity;
-import com.jpuyo.android.recyclerviewplayground.recyclerview.renderers.RenderersActivity;
+import com.jpuyo.android.recyclerviewplayground.recyclerview.ui.epoxy.EpoxyActivity;
+import com.jpuyo.android.recyclerviewplayground.recyclerview.ui.groupie.GroupieActivity;
+import com.jpuyo.android.recyclerviewplayground.recyclerview.ui.nolibraries.NoLibrariesActivity;
+import com.jpuyo.android.recyclerviewplayground.recyclerview.ui.renderers.RenderersActivity;
 
 public class Navigator {
 
