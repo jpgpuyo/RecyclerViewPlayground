@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jpuyo.android.recyclerviewplayground" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,16 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".recyclerview.nolibraries.NoLibrariesActivity"
+            android:name=".recyclerview.ui.nolibraries.NoLibrariesActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".recyclerview.epoxy.EpoxyActivity"
+            android:name=".recyclerview.ui.epoxy.EpoxyActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".recyclerview.renderers.RenderersActivity"
+            android:name=".recyclerview.ui.renderers.RenderersActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".recyclerview.groupie.GroupieActivity"
+            android:name=".recyclerview.ui.groupie.GroupieActivity"
             android:label="@string/app_name"/>
     </application>
 

@@ -1,4 +1,4 @@
-package com.jpuyo.android.recyclerviewplayground.recyclerview.epoxy;
+package com.jpuyo.android.recyclerviewplayground.recyclerview.ui.epoxy;
 
 import android.os.Bundle;
 
