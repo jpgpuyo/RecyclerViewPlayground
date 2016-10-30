@@ -34,7 +34,7 @@ import butterknife.OnClick;
 
 public class VideoModelRenderer extends Renderer<VideoModel> {
 
-    private static final String TAG = "VideoModelRenderer";
+    private static final String TAG = "Renderers";
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -86,12 +86,12 @@ public class VideoModelRenderer extends Renderer<VideoModel> {
     @OnClick(R.id.tvTitle)
     void onVideoModelTitleClicked() {
         VideoModel videoModel = getContent();
-        Log.d("Renderer", "Clicked title: " + videoModel.getTitle());
+        Log.d(TAG, "Clicked title: " + videoModel.getTitle());
     }
 
     @OnClick(R.id.ivThumbnail)
     void onVideoModelThumbnailClicked() {
         VideoModel videoModel = getContent();
-        Log.d("Renderer", "Clicked thumbnail: " + videoModel.getThumbnail());
+        Log.d(TAG, "Clicked thumbnail: " + videoModel.getThumbnail());
     }
 }

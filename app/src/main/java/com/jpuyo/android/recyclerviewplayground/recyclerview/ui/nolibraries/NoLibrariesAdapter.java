@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoLibrariesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private static final String TAG = "NoLibrariesAdapter";
+    private static final String TAG = "NoLibraries";
 
     private List<VideoModel> items;
 
