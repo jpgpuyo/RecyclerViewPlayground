@@ -2,6 +2,7 @@ package com.jpuyo.android.recyclerviewplayground.recyclerview.ui.nolibraries.vie
 
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,6 +13,8 @@ import com.jpuyo.android.recyclerviewplayground.recyclerview.model.VideoModel;
 
 public class VideoViewHolder extends RecyclerView.ViewHolder{
 
+    private static final String TAG = "NoLibraries";
+
     private TextView tvTitle;
     private ImageView ivThumbnail;
 
@@ -21,11 +24,23 @@ public class VideoViewHolder extends RecyclerView.ViewHolder{
         ivThumbnail = (ImageView) itemView.findViewById(R.id.ivThumbnail);
     }
 
-    public void bind(VideoModel videoModel) {
+    public void bind(final VideoModel videoModel) {
         tvTitle.setText(videoModel.getTitle());
         Glide.with(ivThumbnail.getContext())
                 .load(videoModel.getThumbnail())
                 .placeholder(R.drawable.placeholder)
                 .into(ivThumbnail);
+        tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Clicked title: " + videoModel.getTitle());
+            }
+        });
+        ivThumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Clicked thumbnail: " + videoModel.getThumbnail());
+            }
+        });
     }
 }
