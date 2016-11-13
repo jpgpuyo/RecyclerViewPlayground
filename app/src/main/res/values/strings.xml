@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RecyclerViewPlayground</string>
+    <string name="no_libraries">No libraries</string>
+    <string name="epoxy">Epoxy</string>
+    <string name="renderers">Renderers</string>
+    <string name="groupie">Groupie</string>
+</resources>
