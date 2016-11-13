@@ -15,11 +15,6 @@ public class VideoModel extends Item<GroupieVideoItemBinding> {
     private String title;
     private String thumbnail;
 
-    @Override
-    public int getLayout() {
-        return R.layout.groupie_video_item;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -37,7 +32,14 @@ public class VideoModel extends Item<GroupieVideoItemBinding> {
     }
 
     @Override
+    public int getLayout() {
+        return R.layout.groupie_video_item;
+    }
+
+    @Override
     public void bind(final GroupieVideoItemBinding viewBinding, int position) {
+        Log.d(TAG, "Element " + position + " set.");
+
         viewBinding.tvTitle.setText(title);
         Glide.with(viewBinding.ivThumbnail.getContext())
                 .load(thumbnail)
