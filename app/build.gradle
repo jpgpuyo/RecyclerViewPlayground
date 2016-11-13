@@ -27,6 +27,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -43,4 +47,5 @@ dependencies {
     compile 'com.github.pedrovgs:renderers:3.2.0'
     compile 'com.airbnb.android:epoxy:1.4.0'
     apt 'com.airbnb.android:epoxy-processor:1.4.0'
+    compile 'com.genius:groupie:0.4.0'
 }
