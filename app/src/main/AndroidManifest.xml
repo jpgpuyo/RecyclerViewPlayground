@@ -10,23 +10,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".common.activities.MainActivity" >
+        <activity android:name=".ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".recyclerview.ui.nolibraries.NoLibrariesActivity"
+            android:name=".ui.videolist.nolibraries.NoLibrariesActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".recyclerview.ui.epoxy.EpoxyActivity"
+            android:name=".ui.videolist.epoxy.EpoxyActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".recyclerview.ui.renderers.RenderersActivity"
+            android:name=".ui.videolist.renderers.RenderersActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".recyclerview.ui.groupie.GroupieActivity"
+            android:name=".ui.videolist.groupie.GroupieActivity"
             android:label="@string/app_name"/>
     </application>
 
