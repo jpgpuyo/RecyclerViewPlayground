@@ -5,7 +5,7 @@ Sample project created to reduce the boilerplate code involved in the creation o
 I have created a sample to show a video items list, inspired by the sample
 used in [Renderers library](https://github.com/pedrovgs/Renderers)
 
-![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248366/e56037ae-a9e2-11e6-86ac-c0b5271665a2.png)
+![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248432/59fd2620-a9e4-11e6-8bb6-838bcfb89a50.png)
 
 The video list is hardcoded in a json file, with data from [thetvdb](http://thetvdb.com/)
 
@@ -15,7 +15,7 @@ I have implemented the same sample with different libraries:
 - `Renderers`: Recycler view implemented with [Renderers library](https://github.com/pedrovgs/Renderers)
 - `Groupie`: Recycler view implemented with [Groupie library](https://github.com/Genius/groupie)
 
-![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248365/e545a66e-a9e2-11e6-99d1-20d76da6bbe1.png)
+![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248403/cccdb602-a9e3-11e6-93f4-bb6788714a47.png)
 
 ## Which library is the best?
 The best library is the one that best fits your requirements. Just read documentation of different libraries,
