@@ -13,18 +13,36 @@ public class VideoModelDataMapper {
 
     public List<VideoModel> transform(List<VideoDto> videoDtoList) {
         List<VideoModel> videoModelList = new ArrayList<>();
-        for (VideoDto videoDto : videoDtoList) {
-            videoModelList.add(transform(videoDto));
+
+        for (int i = 0; i < videoDtoList.size(); i++) {
+            VideoDto videoDto = videoDtoList.get(i);
+            if (i == 0) {
+                videoModelList.add(transformToMainVideo(videoDto));
+            } else {
+                videoModelList.add(transformToSecondaryVideo(videoDto));
+            }
         }
         return videoModelList;
     }
 
-    public VideoModel transform(VideoDto videoDto) {
+    private VideoModel transformToMainVideo(VideoDto videoDto) {
         VideoModel videoModel = null;
         if (videoDto != null) {
             videoModel = new VideoModel();
             videoModel.setTitle(videoDto.getTitle());
             videoModel.setThumbnail(videoDto.getThumbnail());
+            videoModel.setMainVideo(true);
+        }
+        return videoModel;
+    }
+
+    private VideoModel transformToSecondaryVideo(VideoDto videoDto) {
+        VideoModel videoModel = null;
+        if (videoDto != null) {
+            videoModel = new VideoModel();
+            videoModel.setTitle(videoDto.getTitle());
+            videoModel.setThumbnail(videoDto.getThumbnail());
+            videoModel.setSecondaryVideo(true);
         }
         return videoModel;
     }
