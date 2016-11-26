@@ -35,7 +35,7 @@ public class VideoModel extends EpoxyModelWithHolder<VideoViewHolder> {
 
     @Override
     protected int getDefaultLayout() {
-        return R.layout.video_item;
+        return R.layout.main_video_item;
     }
 
     @Override

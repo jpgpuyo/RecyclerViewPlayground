@@ -19,10 +19,11 @@ package com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.jpuyo.android.recyclerviewplayground.R;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.holders.MainVideoViewHolder;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.holders.SecondaryVideoViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,9 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private static final String TAG = "NoLibraries";
 
     private List<VideoModel> items;
+
+    private static final int MAIN_VIDEO_TYPE = 10;
+    private static final int SECONDARY_VIDEO_TYPE = 20;
 
     public VideoAdapter() {
         this.items = new ArrayList<>();
@@ -46,17 +50,34 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            return MAIN_VIDEO_TYPE;
+        } else {
+            return SECONDARY_VIDEO_TYPE;
+        }
+    }
+
+    @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder = null;
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.video_item, parent, false);
-        viewHolder = new VideoViewHolder(layout);
+        if (viewType == MAIN_VIDEO_TYPE) {
+            viewHolder = new MainVideoViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.main_video_item, parent, false));
+        } else if (viewType == SECONDARY_VIDEO_TYPE) {
+            viewHolder = new SecondaryVideoViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.secondary_video_item, parent, false));
+        }
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         Log.d(TAG, "Element " + position + " set.");
-        ((VideoViewHolder) viewHolder).bind(items.get(position));
+        int viewType = getItemViewType(position);
+        if (viewType == MAIN_VIDEO_TYPE) {
+            ((MainVideoViewHolder) viewHolder).bind(items.get(position));
+        } else if (viewType == SECONDARY_VIDEO_TYPE) {
+            ((SecondaryVideoViewHolder) viewHolder).bind(items.get(position));
+        }
     }
 
     public void renderVideoList(List<VideoModel> videoModelList) {

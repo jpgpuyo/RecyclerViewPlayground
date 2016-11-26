@@ -65,7 +65,7 @@ public class VideoModelRenderer extends Renderer<VideoModel> {
 
     @Override
     protected View inflate(LayoutInflater inflater, ViewGroup parent) {
-        View inflatedView = inflater.inflate(R.layout.video_item, parent, false);
+        View inflatedView = inflater.inflate(R.layout.main_video_item, parent, false);
         ButterKnife.bind(this, inflatedView);
         return inflatedView;
     }
