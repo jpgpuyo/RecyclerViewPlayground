@@ -22,8 +22,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.jpuyo.android.recyclerviewplayground.R;
-import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.holders.MainVideoViewHolder;
-import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.holders.SecondaryVideoViewHolder;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.main.MainVideoViewHolder;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.secondary.SecondaryVideoViewHolder;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.main.MainVideoModel;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.secondary.SecondaryVideoModel;
 
