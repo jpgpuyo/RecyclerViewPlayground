@@ -24,6 +24,8 @@ import android.view.ViewGroup;
 import com.jpuyo.android.recyclerviewplayground.R;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.holders.MainVideoViewHolder;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.holders.SecondaryVideoViewHolder;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.main.MainVideoModel;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.secondary.SecondaryVideoModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,11 +53,15 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
-            return MAIN_VIDEO_TYPE;
-        } else {
-            return SECONDARY_VIDEO_TYPE;
+        Object item = items.get(position);
+        int result = 0;
+
+        if (item instanceof MainVideoModel) {
+            result = MAIN_VIDEO_TYPE;
+        } else if (item instanceof SecondaryVideoModel){
+            result = SECONDARY_VIDEO_TYPE;
         }
+        return result;
     }
 
     @Override
