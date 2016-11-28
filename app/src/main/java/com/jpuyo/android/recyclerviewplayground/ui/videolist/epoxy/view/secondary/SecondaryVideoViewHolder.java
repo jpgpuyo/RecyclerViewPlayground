@@ -1,4 +1,4 @@
-package com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view;
+package com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.secondary;
 
 import android.util.Log;
 import android.view.View;
@@ -8,8 +8,9 @@ import android.widget.TextView;
 import com.airbnb.epoxy.EpoxyHolder;
 import com.bumptech.glide.Glide;
 import com.jpuyo.android.recyclerviewplayground.R;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.VideoModel;
 
-public class VideoViewHolder extends EpoxyHolder {
+public class SecondaryVideoViewHolder extends EpoxyHolder {
 
     private static final String TAG = "Epoxy";
 
