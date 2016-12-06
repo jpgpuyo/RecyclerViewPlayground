@@ -1,7 +1,8 @@
 package com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.mapper;
 
 import com.jpuyo.android.recyclerviewplayground.data.videolist.dto.VideoDto;
-import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.VideoModel;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.main.MainVideoModel;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.secondary.SecondaryVideoModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,21 +12,41 @@ public class VideoModelDataMapper {
     public VideoModelDataMapper() {
     }
 
-    public List<VideoModel> transform(List<VideoDto> videoDtoList) {
-        List<VideoModel> videoModelList = new ArrayList<>();
-        for (VideoDto videoDto : videoDtoList) {
-            videoModelList.add(transform(videoDto));
+    public MainVideoModel transformToMainVideoModel(List<VideoDto> videoDtoList) {
+        MainVideoModel mainVideoModel = null;
+        if (!videoDtoList.isEmpty()) {
+            mainVideoModel = transformToMainVideoModel(videoDtoList.get(0));
         }
-        return videoModelList;
+        return mainVideoModel;
     }
 
-    public VideoModel transform(VideoDto videoDto) {
-        VideoModel videoModel = null;
-        if (videoDto != null) {
-            videoModel = new VideoModel();
-            videoModel.setTitle(videoDto.getTitle());
-            videoModel.setThumbnail(videoDto.getThumbnail());
+    public List<SecondaryVideoModel> transformToSecondaryVideoModelList(List<VideoDto> videoDtoList) {
+        List<SecondaryVideoModel> secondaryVideoModels = new ArrayList<>();
+        for (int i = 0; i < videoDtoList.size(); i++) {
+            if (i != 0) {
+                secondaryVideoModels.add(transformToSecondaryVideoModel(videoDtoList.get(i)));
+            }
         }
-        return videoModel;
+        return secondaryVideoModels;
+    }
+
+    private MainVideoModel transformToMainVideoModel(VideoDto videoDto) {
+        MainVideoModel mainVideoModel = null;
+        if (videoDto != null) {
+            mainVideoModel = new MainVideoModel();
+            mainVideoModel.setTitle(videoDto.getTitle());
+            mainVideoModel.setThumbnail(videoDto.getThumbnail());
+        }
+        return mainVideoModel;
+    }
+
+    private SecondaryVideoModel transformToSecondaryVideoModel(VideoDto videoDto) {
+        SecondaryVideoModel secondaryVideoModel = null;
+        if (videoDto != null) {
+            secondaryVideoModel = new SecondaryVideoModel();
+            secondaryVideoModel.setTitle(videoDto.getTitle());
+            secondaryVideoModel.setThumbnail(videoDto.getThumbnail());
+        }
+        return secondaryVideoModel;
     }
 }
