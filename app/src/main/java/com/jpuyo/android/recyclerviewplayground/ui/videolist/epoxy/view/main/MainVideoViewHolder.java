@@ -23,7 +23,7 @@ public class MainVideoViewHolder extends EpoxyHolder {
         ivThumbnail = (ImageView) itemView.findViewById(R.id.ivThumbnail);
     }
 
-    public void bind(final VideoModel videoModel) {
+    public void render(final VideoModel videoModel) {
         tvTitle.setText(videoModel.getTitle());
         Glide.with(ivThumbnail.getContext())
                 .load(videoModel.getThumbnail())

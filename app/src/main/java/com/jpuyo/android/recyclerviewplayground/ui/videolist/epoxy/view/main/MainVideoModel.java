@@ -46,6 +46,6 @@ public class MainVideoModel extends EpoxyModelWithHolder<MainVideoViewHolder> im
     @Override
     public void bind(MainVideoViewHolder mainVideoViewHolder) {
         Log.d(TAG, "Element set on unknown position");
-        mainVideoViewHolder.bind(this);
+        mainVideoViewHolder.render(this);
     }
 }
