@@ -34,6 +34,11 @@ public class RenderersActivity extends RecyclerViewActivity {
         videoAdapter.renderVideoList(videoModelList);
     }
 
+    @Override
+    public String getToolbarTitle() {
+        return getResources().getString(R.string.renderers);
+    }
+
     private void initAdapter() {
         videoAdapter = new VideoAdapter(new VideoModelRendererBuilder());
 

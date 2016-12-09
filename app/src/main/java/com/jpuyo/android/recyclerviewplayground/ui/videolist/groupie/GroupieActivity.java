@@ -38,6 +38,11 @@ public class GroupieActivity extends RecyclerViewActivity {
         videoAdapter.renderVideoList(mainVideoModel, secondaryVideoModelList);
     }
 
+    @Override
+    public String getToolbarTitle() {
+        return getResources().getString(R.string.groupie);
+    }
+
     private void initAdapter() {
         videoAdapter = new VideoAdapter();
     }

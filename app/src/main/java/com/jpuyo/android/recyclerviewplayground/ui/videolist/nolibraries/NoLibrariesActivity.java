@@ -33,6 +33,11 @@ public class NoLibrariesActivity extends RecyclerViewActivity {
         videoAdapter.renderVideoList(videoModelList);
     }
 
+    @Override
+    public String getToolbarTitle() {
+        return getResources().getString(R.string.no_libraries);
+    }
+
     private void initAdapter() {
         videoAdapter = new VideoAdapter();
     }

@@ -39,6 +39,11 @@ public class EpoxyActivity extends RecyclerViewActivity {
         videoAdapter.renderVideoList(mainVideoModel, secondaryVideoModelList);
     }
 
+    @Override
+    public String getToolbarTitle() {
+        return getResources().getString(R.string.epoxy);
+    }
+
     private void initAdapter() {
         videoAdapter = new VideoAdapter();
     }
