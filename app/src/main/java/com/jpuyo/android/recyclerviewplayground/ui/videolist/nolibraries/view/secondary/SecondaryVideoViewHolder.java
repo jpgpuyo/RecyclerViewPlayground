@@ -1,23 +1,24 @@
-package com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view;
+package com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.secondary;
 
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.airbnb.epoxy.EpoxyHolder;
 import com.bumptech.glide.Glide;
 import com.jpuyo.android.recyclerviewplayground.R;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.view.VideoModel;
 
-public class VideoViewHolder extends EpoxyHolder {
+public class SecondaryVideoViewHolder extends RecyclerView.ViewHolder{
 
-    private static final String TAG = "Epoxy";
+    private static final String TAG = "NoLibraries";
 
     private TextView tvTitle;
     private ImageView ivThumbnail;
 
-    @Override
-    protected void bindView(View itemView) {
+    public SecondaryVideoViewHolder(View itemView) {
+        super(itemView);
         tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
         ivThumbnail = (ImageView) itemView.findViewById(R.id.ivThumbnail);
     }

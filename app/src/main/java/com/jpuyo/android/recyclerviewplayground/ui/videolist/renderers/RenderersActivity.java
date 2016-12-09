@@ -5,16 +5,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jpuyo.android.recyclerviewplayground.R;
-import com.jpuyo.android.recyclerviewplayground.ui.common.activity.RecyclerViewActivity;
-import com.jpuyo.android.recyclerviewplayground.data.videolist.VideoRepository;
 import com.jpuyo.android.recyclerviewplayground.data.common.JsonReader;
-
-import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.view.VideoAdapter;
+import com.jpuyo.android.recyclerviewplayground.data.videolist.VideoRepository;
+import com.jpuyo.android.recyclerviewplayground.ui.common.activity.RecyclerViewActivity;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.mapper.VideoModelDataMapper;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.view.VideoAdapter;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.view.VideoModel;
-import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.view.VideoModelRenderer;
-import com.pedrogomez.renderers.Renderer;
-import com.pedrogomez.renderers.RendererBuilder;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.view.VideoModelRendererBuilder;
 
 import java.util.List;
 
@@ -37,10 +34,13 @@ public class RenderersActivity extends RecyclerViewActivity {
         videoAdapter.renderVideoList(videoModelList);
     }
 
+    @Override
+    public String getToolbarTitle() {
+        return getResources().getString(R.string.renderers);
+    }
+
     private void initAdapter() {
-        Renderer<VideoModel> renderer = new VideoModelRenderer();
-        RendererBuilder<VideoModel> rendererBuilder = new RendererBuilder(renderer);
-        videoAdapter = new VideoAdapter(rendererBuilder);
+        videoAdapter = new VideoAdapter(new VideoModelRendererBuilder());
 
     }
 

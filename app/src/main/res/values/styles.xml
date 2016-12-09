@@ -8,12 +8,29 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/md_white_1000</item>
+    </style>
+
     <style name="AppTheme.VideoTitle">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/title_text_size</item>
         <item name="android:paddingLeft">@dimen/default_padding</item>
         <item name="android:paddingRight">@dimen/default_padding</item>
         <item name="android:layout_margin">@dimen/default_margin</item>
+    </style>
+
+    <style name="AppTheme.SecondaryVideo">
+        <item name="android:background">@color/md_grey_50</item>
+    </style>
+
+    <style name="AppTheme.SecondaryVideo.Title" parent="AppTheme.VideoTitle">
+        <item name="android:textColor">@color/md_teal_500</item>
     </style>
 
 </resources>

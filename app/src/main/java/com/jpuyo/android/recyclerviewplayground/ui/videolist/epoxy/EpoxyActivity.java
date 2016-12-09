@@ -5,12 +5,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jpuyo.android.recyclerviewplayground.R;
+import com.jpuyo.android.recyclerviewplayground.data.videolist.dto.VideoDto;
 import com.jpuyo.android.recyclerviewplayground.ui.common.activity.RecyclerViewActivity;
 import com.jpuyo.android.recyclerviewplayground.data.videolist.VideoRepository;
 import com.jpuyo.android.recyclerviewplayground.data.common.JsonReader;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.VideoAdapter;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.mapper.VideoModelDataMapper;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.VideoModel;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.main.MainVideoModel;
+import com.jpuyo.android.recyclerviewplayground.ui.videolist.epoxy.view.secondary.SecondaryVideoModel;
 
 import java.util.List;
 
@@ -29,8 +32,16 @@ public class EpoxyActivity extends RecyclerViewActivity {
         initAdapter();
         initRecyclerView();
 
-        List<VideoModel> videoModelList = retrieveVideoList();
-        videoAdapter.renderVideoList(videoModelList);
+        List<VideoDto> videoDtoList = retrieveVideoList();
+        VideoModelDataMapper videoModelDataMapper = new VideoModelDataMapper();
+        MainVideoModel mainVideoModel = videoModelDataMapper.transformToMainVideoModel(videoDtoList);
+        List<SecondaryVideoModel> secondaryVideoModelList = videoModelDataMapper.transformToSecondaryVideoModelList(videoDtoList);
+        videoAdapter.renderVideoList(mainVideoModel, secondaryVideoModelList);
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getResources().getString(R.string.epoxy);
     }
 
     private void initAdapter() {
@@ -42,9 +53,8 @@ public class EpoxyActivity extends RecyclerViewActivity {
         mainRecyclerView.setAdapter(videoAdapter);
     }
 
-    private List<VideoModel> retrieveVideoList() {
+    private List<VideoDto> retrieveVideoList() {
         VideoRepository videoRepository = new VideoRepository(new JsonReader(this));
-        List<VideoModel> videoModelList = new VideoModelDataMapper().transform(videoRepository.getVideos());
-        return videoModelList;
+        return videoRepository.getVideos();
     }
 }
