@@ -82,7 +82,7 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         if (viewType == MAIN_VIDEO_TYPE) {
             ((MainVideoViewHolder) viewHolder).render(items.get(position));
         } else if (viewType == SECONDARY_VIDEO_TYPE) {
-            ((SecondaryVideoViewHolder) viewHolder).bind(items.get(position));
+            ((SecondaryVideoViewHolder) viewHolder).render(items.get(position));
         }
     }
 
