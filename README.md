@@ -11,7 +11,7 @@ I have implemented the same sample with different libraries:
 - `Renderers`: Recycler view implemented with [Renderers library](https://github.com/pedrovgs/Renderers)
 - `Groupie`: Recycler view implemented with [Groupie library](https://github.com/Genius/groupie)
 
-![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248403/cccdb602-a9e3-11e6-93f4-bb6788714a47.png) ![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248432/59fd2620-a9e4-11e6-8bb6-838bcfb89a50.png)
+![Screenshot](https://cloud.githubusercontent.com/assets/7917956/20248403/cccdb602-a9e3-11e6-93f4-bb6788714a47.png) ![Screenshot](https://cloud.githubusercontent.com/assets/7917956/21085038/d4ccc1e2-c00c-11e6-8561-db933c1f8c7e.png)
 
 ## Which library is the best?
 The best library is the one that best fits your requirements. Just read documentation of different libraries,
