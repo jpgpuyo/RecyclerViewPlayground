@@ -1,41 +1,40 @@
 package com.jpuyo.android.recyclerviewplayground.ui;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.jpuyo.android.recyclerviewplayground.R;
-import com.jpuyo.android.recyclerviewplayground.ui.common.activity.BaseActivity;
-import com.jpuyo.android.recyclerviewplayground.ui.common.navigation.Navigator;
+import com.jpuyo.android.recyclerviewplayground.ui.common.navigation.ActivityNavigator;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
-
-    private Navigator navigator;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
-        navigator = new Navigator(this);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.btn_sample_no_libraries)
     public void openNoLibrariesSample() {
-        navigator.loadNoLibrariesSample();
+        ActivityNavigator.loadNoLibrariesSample(this);
     }
 
     @OnClick(R.id.btn_sample_epoxy)
     public void openEpoxySample() {
-        navigator.loadEpoxySample();
+        ActivityNavigator.loadEpoxySample(this);
     }
 
     @OnClick(R.id.btn_sample_renderers)
     public void openRenderersSample() {
-        navigator.loadRenderersSample();
+        ActivityNavigator.loadRenderersSample(this);
     }
 
     @OnClick(R.id.btn_sample_groupie)
     public void openGroupieSample() {
-        navigator.loadGroupieSample();
+        ActivityNavigator.loadGroupieSample(this);
     }
 }

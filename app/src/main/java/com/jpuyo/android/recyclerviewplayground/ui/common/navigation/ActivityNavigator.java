@@ -8,31 +8,25 @@ import com.jpuyo.android.recyclerviewplayground.ui.videolist.groupie.GroupieActi
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.nolibraries.NoLibrariesActivity;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.renderers.RenderersActivity;
 
-public class Navigator {
+public class ActivityNavigator {
 
-    private final Context context;
-
-    public Navigator(Context context) {
-        this.context = context;
+    public static void loadNoLibrariesSample(Context context) {
+        launchActivity(context, NoLibrariesActivity.class);
     }
 
-    public void loadNoLibrariesSample() {
-        launchActivity(NoLibrariesActivity.class);
+    public static void loadEpoxySample(Context context) {
+        launchActivity(context, EpoxyActivity.class);
     }
 
-    public void loadEpoxySample() {
-        launchActivity(EpoxyActivity.class);
+    public static void loadRenderersSample(Context context) {
+        launchActivity(context, RenderersActivity.class);
     }
 
-    public void loadRenderersSample() {
-        launchActivity(RenderersActivity.class);
+    public static void loadGroupieSample(Context context) {
+        launchActivity(context, GroupieActivity.class);
     }
 
-    public void loadGroupieSample() {
-        launchActivity(GroupieActivity.class);
-    }
-
-    private void launchActivity(Class activity){
+    private static void launchActivity(Context context, Class activity){
         Intent intent = new Intent(context, activity);
         context.startActivity(intent);
     }
