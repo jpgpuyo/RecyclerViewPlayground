@@ -1,4 +1,4 @@
-package com.jpuyo.android.recyclerviewplayground.data.common;
+package com.jpuyo.android.recyclerviewplayground.data.videolist;
 
 import android.content.Context;
 
@@ -11,24 +11,18 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
-public class JsonReader {
+public class VideosProvider {
 
-    private final Context context;
-    List<VideoDto> videos;
-
-    public JsonReader(Context context){
-        this.context = context;
-    }
-
-    public List<VideoDto> readVideoListFromAssets(){
+    public static List<VideoDto> getVideos(Context context) {
         GsonBuilder gsonBuilder=new GsonBuilder();
         Gson gson=gsonBuilder.create();
-        videos = Arrays.asList(gson.fromJson(loadJsonfromAssets(),VideoDto[].class));
+        String json = loadJsonfromAssets(context);
+        List<VideoDto> videos = Arrays.asList(gson.fromJson(json,VideoDto[].class));
         return videos;
     }
 
-    private String loadJsonfromAssets(){
-        String json=null;
+    private static String loadJsonfromAssets(Context context){
+        String json;
         try {
             InputStream is = context.getAssets().open("videos.json");
             int size = is.available();

@@ -1,14 +1,11 @@
 package com.jpuyo.android.recyclerviewplayground.ui.videolist.groupie;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.jpuyo.android.recyclerviewplayground.R;
-import com.jpuyo.android.recyclerviewplayground.data.common.JsonReader;
-import com.jpuyo.android.recyclerviewplayground.data.videolist.VideoRepository;
 import com.jpuyo.android.recyclerviewplayground.data.videolist.dto.VideoDto;
-import com.jpuyo.android.recyclerviewplayground.ui.common.activity.RecyclerViewActivity;
+import com.jpuyo.android.recyclerviewplayground.ui.common.activity.VideoListActivity;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.groupie.mapper.VideoModelDataMapper;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.groupie.view.VideoAdapter;
 import com.jpuyo.android.recyclerviewplayground.ui.videolist.groupie.view.main.MainVideoModel;
@@ -18,7 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class GroupieActivity extends RecyclerViewActivity {
+public class GroupieActivity extends VideoListActivity {
 
     private VideoAdapter videoAdapter;
 
@@ -26,34 +23,27 @@ public class GroupieActivity extends RecyclerViewActivity {
     RecyclerView mainRecyclerView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initAdapter();
-        initRecyclerView();
-
-        List<VideoDto> videoDtoList = retrieveVideoList();
-        VideoModelDataMapper videoModelDataMapper = new VideoModelDataMapper();
-        MainVideoModel mainVideoModel = videoModelDataMapper.transformToMainVideoModel(videoDtoList);
-        List<SecondaryVideoModel> secondaryVideoModelList = videoModelDataMapper.transformToSecondaryVideoModelList(videoDtoList);
-        videoAdapter.renderVideoList(mainVideoModel, secondaryVideoModelList);
-    }
-
-    @Override
-    public String getToolbarTitle() {
+    protected String getToolbarTitle() {
         return getResources().getString(R.string.groupie);
     }
 
-    private void initAdapter() {
+    @Override
+    protected void initAdapter() {
         videoAdapter = new VideoAdapter();
     }
 
-    private void initRecyclerView() {
+    @Override
+    protected void initRecyclerView() {
         mainRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mainRecyclerView.setAdapter(videoAdapter);
     }
 
-    private List<VideoDto> retrieveVideoList() {
-        VideoRepository videoRepository = new VideoRepository(new JsonReader(this));
-        return videoRepository.getVideos();
+    @Override
+    protected void onVideosLoaded(List<VideoDto> videos) {
+        VideoModelDataMapper videoModelDataMapper = new VideoModelDataMapper();
+        MainVideoModel mainVideoModel = videoModelDataMapper.transformToMainVideoModel(videos);
+        List<SecondaryVideoModel> secondaryVideoModelList = videoModelDataMapper.transformToSecondaryVideoModelList(videos);
+
+        videoAdapter.renderVideoList(mainVideoModel, secondaryVideoModelList);
     }
 }

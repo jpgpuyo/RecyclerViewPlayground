@@ -4,22 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class VideoDto {
 
-    @SerializedName("position")
-    private int position;
-
     @SerializedName("title")
     private String title;
 
     @SerializedName("thumbnail")
     private String thumbnail;
-
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
 
     public String getTitle() {
         return title;
